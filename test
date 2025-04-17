@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditionals Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question p {
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+    }
+    .result {
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conditionals Test</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. If water ___ 100 degrees, it boils.</p>
+      <label><input type="radio" name="q1" value="a"> a) reaches</label>
+      <label><input type="radio" name="q1" value="b"> b) reached</label>
+      <label><input type="radio" name="q1" value="c"> c) will reach</label>
+      <label><input type="radio" name="q1" value="d"> d) reach</label>
+    </div>
+
+    <div class="question">
+      <p>2. What type of conditional is this?<br>If I had known about the party, I would have gone.</p>
+      <label><input type="radio" name="q2" value="a"> a) Zero</label>
+      <label><input type="radio" name="q2" value="b"> b) First</label>
+      <label><input type="radio" name="q2" value="c"> c) Second</label>
+      <label><input type="radio" name="q2" value="d"> d) Third</label>
+    </div>
+
+    <div class="question">
+      <p>3. If she ___ hard, she will pass the exam.</p>
+      <label><input type="radio" name="q3" value="a"> a) studies</label>
+      <label><input type="radio" name="q3" value="b"> b) studied</label>
+      <label><input type="radio" name="q3" value="c"> c) would study</label>
+      <label><input type="radio" name="q3" value="d"> d) study</label>
+    </div>
+
+    <div class="question">
+      <p>4. What type of conditional is this?<br>If it rains tomorrow, we’ll cancel the picnic.</p>
+      <label><input type="radio" name="q4" value="a"> a) Zero</label>
+      <label><input type="radio" name="q4" value="b"> b) First</label>
+      <label><input type="radio" name="q4" value="c"> c) Second</label>
+      <label><input type="radio" name="q4" value="d"> d) Third</label>
+    </div>
+
+    <div class="question">
+      <p>5. If I ___ a bird, I would fly to you.</p>
+      <label><input type="radio" name="q5" value="a"> a) am</label>
+      <label><input type="radio" name="q5" value="b"> b) were</label>
+      <label><input type="radio" name="q5" value="c"> c) was</label>
+      <label><input type="radio" name="q5" value="d"> d) will be</label>
+    </div>
+
+    <div class="question">
+      <p>6. What type of conditional is this?<br>If you heat ice, it melts.</p>
+      <label><input type="radio" name="q6" value="a"> a) Zero</label>
+      <label><input type="radio" name="q6" value="b"> b) First</label>
+      <label><input type="radio" name="q6" value="c"> c) Second</label>
+      <label><input type="radio" name="q6" value="d"> d) Third</label>
+    </div>
+
+    <div class="question">
+      <p>7. If they ___ earlier, they wouldn’t have missed the train.</p>
+      <label><input type="radio" name="q7" value="a"> a) left</label>
+      <label><input type="radio" name="q7" value="b"> b) had left</label>
+      <label><input type="radio" name="q7" value="c"> c) leave</label>
+      <label><input type="radio" name="q7" value="d"> d) would leave</label>
+    </div>
+
+    <div class="question">
+      <p>8. What type of conditional is this?<br>If I were you, I wouldn’t do that.</p>
+      <label><input type="radio" name="q8" value="a"> a) Zero</label>
+      <label><input type="radio" name="q8" value="b"> b) First</label>
+      <label><input type="radio" name="q8" value="c"> c) Second</label>
+      <label><input type="radio" name="q8" value="d"> d) Third</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+    <div class="result" id="result"></div>
+  </form>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = ['a', 'd', 'a', 'b', 'b', 'a', 'b', 'c'];
+      let score = 0;
+      for (let i = 1; i <= 8; i++) {
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        if (answer && answer.value === correctAnswers[i - 1]) {
+          score++;
+        }
+      }
+      document.getElementById('result').innerText = `You got ${score} out of 8 correct!`;
+    }
+  </script>
+</body>
+</html>
